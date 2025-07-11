@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.job_hunter_env/
+job_hunter_env/
+
+# Chainlit
+.chainlit/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# dotenv
+.env
+
+# Database
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# Alembic
+alembic/versions/ 
