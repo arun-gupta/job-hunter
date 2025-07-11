@@ -14,8 +14,6 @@ build/
 venv/
 ENV/
 env/
-.job_hunter_env/
-job_hunter_env/
 
 # Chainlit
 .chainlit/
