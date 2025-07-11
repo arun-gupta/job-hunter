@@ -14,6 +14,7 @@ build/
 venv/
 ENV/
 env/
+.venv/
 
 # Chainlit
 .chainlit/
@@ -29,6 +30,10 @@ env/
 
 # dotenv
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Database
 *.sqlite3
@@ -41,4 +46,36 @@ env/
 alembic/versions/
 
 # Files starting with .files
-.files* 
+.files*
+
+# User data and uploads
+resumes/
+uploads/
+temp/
+tmp/
+
+# IDE and editor files
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json 
