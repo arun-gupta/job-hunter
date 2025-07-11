@@ -38,4 +38,7 @@ env/
 *.log
 
 # Alembic
-alembic/versions/ 
+alembic/versions/
+
+# Files starting with .files
+.files* 
