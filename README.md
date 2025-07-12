@@ -14,7 +14,7 @@ A Python-based web application using Chainlit and CrewAI for automated job hunti
 
 1. **Activate the virtual environment**:
    ```bash
-   source job_hunter_env/bin/activate
+   source venv/bin/activate
    ```
 
 2. **Configure environment variables**:
