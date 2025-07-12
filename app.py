@@ -8,8 +8,10 @@ load_dotenv()
 
 @cl.on_chat_start
 async def start():
-    await cl.Message(content="👋 Welcome to Job Hunter! I'll help you find jobs, optimize your resume, and find referrals.").send()
-    await cl.Message(content="Please enter your job search criteria (e.g., 'Software Engineer, San Francisco, CA, Senior, Tech Company'):").send()
+    # Check if we've already shown the welcome message
+    if not cl.user_session.get("welcome_shown"):
+        await cl.Message(content="👋 Welcome to Job Hunter! I'll help you find jobs, optimize your resume, and find referrals.\n\nPlease enter your job search criteria (e.g., 'Software Engineer, San Francisco, CA, Senior, Tech Company'):").send()
+        cl.user_session.set("welcome_shown", True)
 
 @cl.on_message
 async def main(message: cl.Message):
