@@ -15,13 +15,29 @@ async def start():
 
 @cl.on_message
 async def main(message: cl.Message):
-    # For now, let's create a simple demo without file upload
-    await cl.Message(content="🤖 This is a demo of the Job Hunter app!").send()
+    # Get the job search criteria from user input
+    job_criteria = message.content
     
-    # Simulate the workflow
-    await cl.Message(content="1️⃣ **Job Search Agent**: Searching LinkedIn for 'Software Engineer' positions in 'San Francisco'...").send()
-    await cl.Message(content="2️⃣ **Database Agent**: Storing 5 matching job postings...").send()
-    await cl.Message(content="3️⃣ **Resume Agent**: Optimizing your resume for each job...").send()
-    await cl.Message(content="4️⃣ **Referral Agent**: Finding 3 potential referrals in your network...").send()
+    await cl.Message(content=f"🔍 Searching for jobs matching: {job_criteria}").send()
     
-    await cl.Message(content="✅ **Demo Complete!** In the full version, you would see:\n- Actual job listings from LinkedIn\n- Optimized resumes tailored to each job\n- Database storage of all results\n- Referral recommendations from your network").send() 
+    try:
+        # Create the job hunter crew
+        crew = JobHunterCrew().get_crew(job_criteria)
+        
+        # Run the crew to execute the job search workflow
+        await cl.Message(content="🤖 Starting the AI agents to find your perfect job opportunities...").send()
+        
+        result = crew.kickoff()
+        
+        # Display the results
+        await cl.Message(content="✅ **Job Search Complete!** Here's what the AI agents found:").send()
+        
+        # Format and display the results
+        if result:
+            await cl.Message(content=f"📋 **Results Summary:**\n\n{result}").send()
+        else:
+            await cl.Message(content="❌ No results found. Please try different search criteria.").send()
+            
+    except Exception as e:
+        await cl.Message(content=f"❌ Error during job search: {str(e)}").send()
+        await cl.Message(content="💡 Try using a different job title or location.").send() 

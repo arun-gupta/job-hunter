@@ -1,4 +1,5 @@
 from crewai import Agent
+from linkedin_scraper import linkedin_job_search_tool
 
 # Agent 1: Job Search
 class JobSearchAgent:
@@ -6,10 +7,10 @@ class JobSearchAgent:
         self.agent = Agent(
             role="Job Search Specialist",
             goal="Find relevant job postings on LinkedIn based on user criteria",
-            backstory="You are an expert in LinkedIn job search.",
+            backstory="You are an expert in LinkedIn job search with years of experience finding the best opportunities for candidates. You understand job market trends and can identify high-quality positions.",
             verbose=True,
             allow_delegation=False,
-            tools=[] # Add LinkedIn search tool here
+            tools=[linkedin_job_search_tool]
         )
 
 # Agent 2: Database
