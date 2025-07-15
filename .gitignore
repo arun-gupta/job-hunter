@@ -35,6 +35,9 @@ env/
 .env.test.local
 .env.production.local
 
+# LinkedIn cookies
+linkedin_cookies.json
+
 # Database
 *.sqlite3
 *.db

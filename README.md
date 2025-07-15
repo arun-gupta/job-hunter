@@ -49,33 +49,59 @@ job-hunter/
 
 - ✅ **Scaffold Complete**: Basic structure with Chainlit UI
 - ✅ **Dependencies Installed**: All required packages
-- ✅ **Demo Working**: App runs and shows agent workflow simulation
-- 🔄 **Next Steps**: Implement actual agent tools and LinkedIn integration
+- ✅ **LinkedIn Integration**: OAuth-based job scraping with Selenium
+- ✅ **CrewAI Tools**: Proper tool configuration for all agents
+- ✅ **Error Handling**: Improved error messages and user guidance
+- 🔄 **Next Steps**: Implement database integration and resume optimization
 
 ## 🎯 Next Development Steps
 
-1. **Implement LinkedIn Scraping**: Add Selenium-based job search
-2. **Database Integration**: Connect agents to PostgreSQL
-3. **Resume Optimization**: Add OpenAI-powered resume rewriting
-4. **Network Analysis**: Implement LinkedIn connection scanning
-5. **Error Handling**: Add robust error handling and validation
+1. **Database Integration**: Connect agents to PostgreSQL
+2. **Resume Optimization**: Add OpenAI-powered resume rewriting
+3. **Network Analysis**: Implement LinkedIn connection scanning
+4. **Enhanced Error Handling**: Add more robust validation
 
 ## 🛡️ Environment Variables
 
 Required in `.env`:
 - `OPENAI_API_KEY`: Your OpenAI API key
-- `LINKEDIN_EMAIL`: LinkedIn account email
-- `LINKEDIN_PASSWORD`: LinkedIn account password
 - `DATABASE_URL`: PostgreSQL database URL
 - `CHAINLIT_AUTH_SECRET`: Chainlit authentication secret
 
+### LinkedIn Authentication (Optional)
+Since LinkedIn uses OAuth authentication, you have two options:
+
+**Option 1: Use cookies for better access**
+1. Run the authentication helper: `python linkedin_auth_helper.py`
+2. Follow the prompts to log in manually and capture cookies
+3. The scraper will automatically use the saved cookies
+
+**Option 2: Use public access (limited results)**
+- The scraper will work without authentication but with limited job listings
+
 ## 📝 Usage
 
-1. Start the app with `chainlit run app.py`
-2. Upload your resume file
-3. Enter job search criteria
-4. Watch the AI agents work their magic!
+1. **Start the app**: `chainlit run app.py`
+2. **Optional LinkedIn Setup**: For better results, run `python linkedin_auth_helper.py` in a separate terminal
+3. **Enter job search criteria**: e.g., "Software Engineer, San Francisco, CA, Senior, Tech Company"
+4. **Watch the AI agents work**: The app will search LinkedIn, store results, and provide recommendations
+
+### LinkedIn Authentication (Optional)
+- **With cookies**: Better access to job listings (run `python linkedin_auth_helper.py`)
+- **Without cookies**: Limited results but still functional
+
+## 🙏 Credits
+
+This project uses [py-linkedin-jobs-scraper](https://github.com/spinlud/py-linkedin-jobs-scraper) for robust LinkedIn job scraping. Many thanks to [@spinlud](https://github.com/spinlud) and contributors for their excellent open-source work!
 
 ## 🤝 Contributing
 
-This is a scaffold/demo version. The actual agent implementations need to be added for full functionality. 
+This is a working version with LinkedIn job search functionality. The app uses OAuth-based authentication and doesn't require LinkedIn email/password credentials.
+
+### Key Features Implemented:
+- ✅ LinkedIn job scraping with Selenium
+- ✅ OAuth authentication via cookies
+- ✅ CrewAI agent orchestration
+- ✅ Chainlit web interface
+- 🔄 Database integration (in progress)
+- 🔄 Resume optimization (in progress) 
